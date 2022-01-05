@@ -11,8 +11,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>groupId</groupId>
-    <artifactId>3dPrintingOnMapsServer</artifactId>
+    <groupId>com.mustaf</groupId>
+    <artifactId>printing-on-maps</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>3D Printing On Maps Server</name>
     <description>Server project for app '3D Printing On Maps'</description>
