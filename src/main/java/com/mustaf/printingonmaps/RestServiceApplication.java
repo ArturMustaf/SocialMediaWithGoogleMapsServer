@@ -39,18 +39,5 @@ public class RestServiceApplication implements CommandLineRunner {
         for (var printProject : repository.findAll()) {
             System.out.println(printProject);
         }
-        System.out.println();
-
-        System.out.println("Print project found with findById(0):");
-        System.out.println("--------------------------------");
-        System.out.println(repository.findById(0L));
-
-        System.out.println("Print project found with findById(1):");
-        System.out.println("--------------------------------");
-        System.out.println(repository.findById(1L));
-
-        System.out.println("Print project found with findById(2):");
-        System.out.println("--------------------------------");
-        System.out.println(repository.findById(2L));
     }
 }

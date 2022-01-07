@@ -12,7 +12,7 @@ public class PrintProjectController {
     PrintProjectRepository repository;
 
     @GetMapping("/print-projects/{id}")
-    public PrintProject one(@PathVariable Long id) {
+    public PrintProject one(@PathVariable String id) {
         return repository.findById(id).orElse(null);
     }
 
