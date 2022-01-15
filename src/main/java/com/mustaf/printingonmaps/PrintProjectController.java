@@ -11,6 +11,10 @@ public class PrintProjectController {
 
     PrintProjectRepository repository;
 
+    public PrintProjectController(PrintProjectRepository repository) {
+        this.repository = repository;
+    }
+
     @GetMapping("/print-projects/{id}")
     public PrintProject one(@PathVariable String id) {
         return repository.findById(id).orElse(null);
@@ -18,6 +22,7 @@ public class PrintProjectController {
 
     @GetMapping("/print-projects")
     public List<PrintProject> all() {
+        System.out.println("requesting data...:");
         return repository.findAll();
     }
 }
