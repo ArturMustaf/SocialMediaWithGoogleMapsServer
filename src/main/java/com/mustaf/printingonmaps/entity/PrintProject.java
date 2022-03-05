@@ -1,4 +1,4 @@
-package com.mustaf.printingonmaps;
+package com.mustaf.printingonmaps.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +15,6 @@ public class PrintProject {
     private String name;
     private String description;
     private String sourceUrl;
-
-    public PrintProject() {}
 
     public PrintProject(String name, String description, String sourceUrl) {
         this.name = name;

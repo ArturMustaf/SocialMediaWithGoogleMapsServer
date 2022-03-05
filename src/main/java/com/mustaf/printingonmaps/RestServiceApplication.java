@@ -1,5 +1,7 @@
 package com.mustaf.printingonmaps;
 
+import com.mustaf.printingonmaps.entity.PrintProject;
+import com.mustaf.printingonmaps.repository.PrintProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
