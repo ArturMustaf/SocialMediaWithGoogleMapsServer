@@ -16,10 +16,7 @@ public class Address {
     @Id
     private String id;
     private String address;
+    private double lat;
+    private double lng;
 
-
-    @Override
-    public String toString() {
-        return "address: " + address;
-    }
 }

@@ -5,7 +5,6 @@ import com.mustaf.printingonmaps.entity.Address;
 import com.mustaf.printingonmaps.entity.PrintProject;
 import com.mustaf.printingonmaps.repository.AddressRepository;
 import com.mustaf.printingonmaps.repository.PrintProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,8 +35,9 @@ public class PrintProjectController {
     @GetMapping("/addresses")
     public List<Address> allAddresses() {
         var addresses = addressRepository.findAll();
+
         System.out.println("returning addresses...");
-        addresses.forEach(address -> System.out.println(address.getAddress()));
+        addresses.forEach(address -> System.out.println(address.getAddress() + ", " + address.getLat() + ", " + address.getLng()));
 
         return addresses;
     }
@@ -45,9 +45,12 @@ public class PrintProjectController {
     @PostMapping("/location-data")
     public void createAddress(@RequestBody AddressDTO addressDTO) {
         System.out.println("new address received...");
-        System.out.println(addressDTO);
+
         Address address = new Address();
         address.setAddress(addressDTO.getAddress());
+        address.setLat(addressDTO.getLat());
+        address.setLng(addressDTO.getLng());
+
         addressRepository.save(address);
     }
 }

@@ -12,5 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class AddressDTO {
 
     private String address;
-
+    private double lat;
+    private double lng;
 }
