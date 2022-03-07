@@ -1,10 +1,10 @@
 package com.mustaf.printingonmaps.controller;
 
-import com.mustaf.printingonmaps.dto.AddressDTO;
-import com.mustaf.printingonmaps.entity.Address;
+import com.mustaf.printingonmaps.dto.EventDTO;
+import com.mustaf.printingonmaps.entity.Event;
 import com.mustaf.printingonmaps.entity.PrintProject;
-import com.mustaf.printingonmaps.repository.AddressRepository;
-import com.mustaf.printingonmaps.repository.PrintProjectRepository;
+import com.mustaf.printingonmaps.EventRepository;
+import com.mustaf.printingonmaps.PrintProjectRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,12 +13,12 @@ import java.util.List;
 public class PrintProjectController {
 
     PrintProjectRepository printProjectRepository;
-    AddressRepository addressRepository;
+    EventRepository eventRepository;
 
     public PrintProjectController(PrintProjectRepository printProjectRepository,
-                                  AddressRepository addressRepository) {
+                                  EventRepository eventRepository) {
         this.printProjectRepository = printProjectRepository;
-        this.addressRepository = addressRepository;
+        this.eventRepository = eventRepository;
     }
 
     @GetMapping("/print-projects/{id}")
@@ -32,25 +32,28 @@ public class PrintProjectController {
         return printProjectRepository.findAll();
     }
 
-    @GetMapping("/addresses")
-    public List<Address> allAddresses() {
-        var addresses = addressRepository.findAll();
+    @GetMapping("/events")
+    public List<Event> allEvents() {
+        var events = eventRepository.findAll();
 
-        System.out.println("returning addresses...");
-        addresses.forEach(address -> System.out.println(address.getAddress() + ", " + address.getLat() + ", " + address.getLng()));
+        System.out.println("returning events...");
+        events.forEach(event -> System.out.println(event.getAddress() + ", " + event.getLat() + ", " + event.getLng()));
 
-        return addresses;
+        return events;
     }
 
-    @PostMapping("/location-data")
-    public void createAddress(@RequestBody AddressDTO addressDTO) {
-        System.out.println("new address received...");
+    @PostMapping("/events")
+    public void createAddress(@RequestBody EventDTO eventDTO) {
+        System.out.println("new event received...");
 
-        Address address = new Address();
-        address.setAddress(addressDTO.getAddress());
-        address.setLat(addressDTO.getLat());
-        address.setLng(addressDTO.getLng());
+        Event event = new Event();
+        event.setAddress(eventDTO.getAddress());
+        event.setLat(eventDTO.getLat());
+        event.setLng(eventDTO.getLng());
+        event.setPersonId(eventDTO.getPersonId());
 
-        addressRepository.save(address);
+        System.out.println("received pId: " + event.getPersonId());
+
+        eventRepository.save(event);
     }
 }
