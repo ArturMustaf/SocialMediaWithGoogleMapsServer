@@ -1,7 +1,5 @@
 package com.mustaf.printingonmaps;
 
-import com.mustaf.printingonmaps.entity.PrintProject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RestServiceApplication implements CommandLineRunner {
 
-    @Autowired
-    private PrintProjectRepository repository;
 
     public static void main(String[] args) {
         SpringApplication.run(RestServiceApplication.class, args);
@@ -18,7 +14,7 @@ public class RestServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
+/*
         repository.deleteAll();
 
         var printProject0 = new PrintProject("Benchy",
@@ -39,6 +35,6 @@ public class RestServiceApplication implements CommandLineRunner {
         System.out.println("-----------------------------------");
         for (var printProject : repository.findAll()) {
             System.out.println(printProject);
-        }
+        }*/
     }
 }

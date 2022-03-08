@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Document
 public class EventDTO {
 
     private String address;
