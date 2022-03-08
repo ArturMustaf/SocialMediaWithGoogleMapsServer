@@ -1,14 +1,18 @@
 package com.mustaf.printingonmaps.controller;
 
-import com.mustaf.printingonmaps.UserRepository;
+import com.mustaf.printingonmaps.repository.UserRepository;
 import com.mustaf.printingonmaps.dto.EventDTO;
 import com.mustaf.printingonmaps.dto.UserDTO;
 import com.mustaf.printingonmaps.entity.Event;
-import com.mustaf.printingonmaps.EventRepository;
+import com.mustaf.printingonmaps.repository.EventRepository;
 import com.mustaf.printingonmaps.entity.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ApplicationController {
@@ -54,16 +58,16 @@ public class ApplicationController {
     }
 
     @PostMapping("/events")
-    public void createAddress(@RequestBody EventDTO eventDTO) {
-        System.out.println("new event received...");
+    public EventDTO createAddress(@RequestBody EventDTO eventDTO) {
+        System.out.println("new event received..." + eventDTO.getEndDate() + "|||" + eventDTO.getEndDate());
 
         Event event = new Event();
         event.setAddress(eventDTO.getAddress());
         event.setLat(eventDTO.getLat());
         event.setLng(eventDTO.getLng());
         event.setPersonId(eventDTO.getPersonId());
-        event.setStartDate(eventDTO.getStartDate());
-        event.setEndDate(eventDTO.getEndDate());
+        event.setStartDate(LocalDateTime.of(eventDTO.getStartDate(), LocalTime.now()));
+        event.setEndDate(LocalDateTime.of(eventDTO.getEndDate(), LocalTime.now()));
 
         System.out.println("received pId: " + event.getPersonId());
 
@@ -71,6 +75,7 @@ public class ApplicationController {
         var user = userRepository.findById(event.getPersonId()).get();
         user.getEvents().add(persistentEvent);
         userRepository.save(user);
+        return eventDTO;
     }
 
     @GetMapping("/events")

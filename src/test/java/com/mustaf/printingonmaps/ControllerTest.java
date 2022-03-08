@@ -3,6 +3,8 @@ package com.mustaf.printingonmaps;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mustaf.printingonmaps.dto.EventDTO;
 import com.mustaf.printingonmaps.entity.User;
+import com.mustaf.printingonmaps.repository.EventRepository;
+import com.mustaf.printingonmaps.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,7 @@
 package com.mustaf.printingonmaps;
 
+import com.mustaf.printingonmaps.repository.EventRepository;
+import com.mustaf.printingonmaps.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RestServiceApplication implements CommandLineRunner {
 
+    private UserRepository userRepository;
+    private EventRepository eventRepository;
+
+    public RestServiceApplication(UserRepository userRepository, EventRepository eventRepository) {
+        this.userRepository = userRepository;
+        this.eventRepository = eventRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(RestServiceApplication.class, args);
@@ -14,7 +23,11 @@ public class RestServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-/*
+        userRepository.deleteAll();
+        eventRepository.deleteAll();
+
+
+        /*
         repository.deleteAll();
 
         var printProject0 = new PrintProject("Benchy",
