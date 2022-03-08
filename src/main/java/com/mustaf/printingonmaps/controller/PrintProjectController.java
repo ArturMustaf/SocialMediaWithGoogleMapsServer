@@ -57,6 +57,12 @@ public class PrintProjectController {
         return users;
     }
 
+    @GetMapping("/users/{id}")
+    public User oneUser(@PathVariable String id) {
+        System.out.println("returning single user...");
+        return userRepository.findById(id).get();
+    }
+
 
     @PostMapping("/events")
     public void createAddress(@RequestBody EventDTO eventDTO) {
@@ -67,6 +73,8 @@ public class PrintProjectController {
         event.setLat(eventDTO.getLat());
         event.setLng(eventDTO.getLng());
         event.setPersonId(eventDTO.getPersonId());
+        event.setStartDate(eventDTO.getStartDate());
+        event.setEndDate(eventDTO.getEndDate());
 
         System.out.println("received pId: " + event.getPersonId());
 
