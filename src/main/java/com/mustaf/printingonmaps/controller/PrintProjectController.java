@@ -1,10 +1,12 @@
 package com.mustaf.printingonmaps.controller;
 
+import com.mustaf.printingonmaps.UserRepository;
 import com.mustaf.printingonmaps.dto.EventDTO;
 import com.mustaf.printingonmaps.entity.Event;
 import com.mustaf.printingonmaps.entity.PrintProject;
 import com.mustaf.printingonmaps.EventRepository;
 import com.mustaf.printingonmaps.PrintProjectRepository;
+import com.mustaf.printingonmaps.entity.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +16,14 @@ public class PrintProjectController {
 
     PrintProjectRepository printProjectRepository;
     EventRepository eventRepository;
+    UserRepository userRepository;
 
     public PrintProjectController(PrintProjectRepository printProjectRepository,
-                                  EventRepository eventRepository) {
+                                  EventRepository eventRepository,
+                                  UserRepository userRepository) {
         this.printProjectRepository = printProjectRepository;
         this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/print-projects/{id}")
@@ -42,6 +47,17 @@ public class PrintProjectController {
         return events;
     }
 
+    @GetMapping("/users")
+    public List<User> allUsers() {
+        var users = userRepository.findAll();
+
+        System.out.println("returning users...");
+        users.forEach(user -> System.out.println(user.getDisplayName()));
+
+        return users;
+    }
+
+
     @PostMapping("/events")
     public void createAddress(@RequestBody EventDTO eventDTO) {
         System.out.println("new event received...");
@@ -54,6 +70,9 @@ public class PrintProjectController {
 
         System.out.println("received pId: " + event.getPersonId());
 
-        eventRepository.save(event);
+        var persistentEvent = eventRepository.save(event);
+        var user = userRepository.findById(event.getPersonId()).get();
+        user.getEvents().add(persistentEvent);
+        userRepository.save(user);
     }
 }
