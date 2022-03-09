@@ -16,6 +16,7 @@ public class Event {
 
     @Id
     private String id;
+    private String name;
     private String address;
     private double lat;
     private double lng;

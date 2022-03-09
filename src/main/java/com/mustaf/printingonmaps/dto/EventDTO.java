@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 public class EventDTO {
 
+    private String name;
     private String address;
     private double lat;
     private double lng;

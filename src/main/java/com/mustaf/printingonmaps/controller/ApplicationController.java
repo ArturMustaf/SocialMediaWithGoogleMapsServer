@@ -62,6 +62,7 @@ public class ApplicationController {
         System.out.println("new event received..." + eventDTO.getEndDate() + "|||" + eventDTO.getEndDate());
 
         Event event = new Event();
+        event.setName(eventDTO.getName());
         event.setAddress(eventDTO.getAddress());
         event.setLat(eventDTO.getLat());
         event.setLng(eventDTO.getLng());
