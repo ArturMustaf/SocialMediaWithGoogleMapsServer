@@ -1,4 +1,4 @@
-package com.mustaf.printingonmaps.dto;
+package com.mustaf.socialmaps.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

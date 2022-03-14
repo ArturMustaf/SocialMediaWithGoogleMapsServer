@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>com.mustaf</groupId>
-    <artifactId>printing-on-maps</artifactId>
+    <artifactId>social-maps</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>3D Printing On Maps Server</name>
-    <description>Server project for app '3D Printing On Maps'</description>
+    <name>Social Media with Google Maps</name>
+    <description>Server project for app 'Social Media with Google Maps'</description>
 
     <properties>
         <java.version>11</java.version>

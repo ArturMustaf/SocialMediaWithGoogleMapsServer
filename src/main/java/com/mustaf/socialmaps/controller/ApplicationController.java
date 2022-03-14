@@ -1,11 +1,11 @@
-package com.mustaf.printingonmaps.controller;
+package com.mustaf.socialmaps.controller;
 
-import com.mustaf.printingonmaps.dto.EventDTO;
-import com.mustaf.printingonmaps.dto.UserDTO;
-import com.mustaf.printingonmaps.entity.Event;
-import com.mustaf.printingonmaps.entity.User;
-import com.mustaf.printingonmaps.repository.EventRepository;
-import com.mustaf.printingonmaps.repository.UserRepository;
+import com.mustaf.socialmaps.dto.EventDTO;
+import com.mustaf.socialmaps.dto.UserDTO;
+import com.mustaf.socialmaps.entity.Event;
+import com.mustaf.socialmaps.entity.User;
+import com.mustaf.socialmaps.repository.EventRepository;
+import com.mustaf.socialmaps.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.mustaf.printingonmaps.entity;
+package com.mustaf.socialmaps.entity;
 
 import lombok.Data;
 import lombok.Getter;

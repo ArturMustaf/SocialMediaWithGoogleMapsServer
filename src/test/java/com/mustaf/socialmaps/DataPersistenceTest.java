@@ -1,9 +1,9 @@
-package com.mustaf.printingonmaps;
+package com.mustaf.socialmaps;
 
-import com.mustaf.printingonmaps.entity.Event;
-import com.mustaf.printingonmaps.entity.User;
-import com.mustaf.printingonmaps.repository.EventRepository;
-import com.mustaf.printingonmaps.repository.UserRepository;
+import com.mustaf.socialmaps.entity.Event;
+import com.mustaf.socialmaps.entity.User;
+import com.mustaf.socialmaps.repository.EventRepository;
+import com.mustaf.socialmaps.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

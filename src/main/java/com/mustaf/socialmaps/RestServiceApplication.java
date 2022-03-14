@@ -1,9 +1,9 @@
-package com.mustaf.printingonmaps;
+package com.mustaf.socialmaps;
 
-import com.mustaf.printingonmaps.entity.Event;
-import com.mustaf.printingonmaps.entity.User;
-import com.mustaf.printingonmaps.repository.EventRepository;
-import com.mustaf.printingonmaps.repository.UserRepository;
+import com.mustaf.socialmaps.entity.Event;
+import com.mustaf.socialmaps.entity.User;
+import com.mustaf.socialmaps.repository.EventRepository;
+import com.mustaf.socialmaps.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -135,32 +135,7 @@ public class RestServiceApplication implements CommandLineRunner {
         event2.setPersonId(user2.getGoogleAccId());
         event3.setPersonId(user2.getGoogleAccId());
 
-
-
         eventRepository.saveAll(Arrays.asList(event0, event1, event2, event3, event4, event5, event6, event7));
         userRepository.saveAll(Arrays.asList(user0, user1, user2));
-
-        /*
-        repository.deleteAll();
-
-        var printProject0 = new PrintProject("Benchy",
-                "It is designed to 3D-print quickly and be a fun tool for calibrating your 3D printer. There is a single-part STL file for 3D printing the boat in one material, and a multi-part STL assembly to suitable for multi-material/printhead 3D printing.",
-                "https://www.thingiverse.com/thing:763622");
-        var printProject1 = new PrintProject("Baby Groot",
-                "Hello, my version of baby Groot from the upcoming blockbuster movie \"Guardians of the Galaxy 2\". The model resembles the baby groots appearance in the trailers of the movie.",
-                "https://www.thingiverse.com/thing:2014307");
-        var printProject2 = new PrintProject("Baby Yoda",
-                "A cute lil baby Yoda just in time for Christmas! Sculpted in ZBrush because he's just so darned adorable. Print him up for all your friends that are obsessed with this little guy- I know I will be printing quite a few...",
-                "https://www.thingiverse.com/thing:4038181");
-
-        repository.save(printProject0);
-        repository.save(printProject1);
-        repository.save(printProject2);
-
-        System.out.println("Print project found with findAll():");
-        System.out.println("-----------------------------------");
-        for (var printProject : repository.findAll()) {
-            System.out.println(printProject);
-        }*/
     }
 }

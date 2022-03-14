@@ -1,8 +1,7 @@
-package com.mustaf.printingonmaps.dto;
+package com.mustaf.socialmaps.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
